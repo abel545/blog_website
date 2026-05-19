@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}홈 — MyBlog{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>안녕하세요 👋</h1>
+  <p>개발, 생각, 기록을 남기는 공간입니다.</p>
+</section>
+
+<section class="post-list">
+  {% if posts %}
+    {% for post in posts %}
+    <article class="post-card">
+      <span class="post-date">{{ post.date }}</span>
+      <h2><a href="/post/{{ post.slug }}">{{ post.title }}</a></h2>
+      <p class="post-summary">{{ post.summary }}</p>
+      <a href="/post/{{ post.slug }}" class="read-more">읽기 →</a>
+    </article>
+    {% endfor %}
+  {% else %}
+    <p class="empty">아직 게시글이 없습니다.</p>
+  {% endif %}
+</section>
+{% endblock %}
