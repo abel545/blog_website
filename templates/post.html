@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — MyBlog{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+  <header class="post-header">
+    <p class="post-date">{{ post.date }}</p>
+    <h1>{{ post.title }}</h1>
+  </header>
+  <div class="post-body">
+    {{ post.body | safe }}
+  </div>
+  <a href="/" class="back-link">← 목록으로</a>
+</article>
+{% endblock %}
